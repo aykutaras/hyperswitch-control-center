@@ -115,6 +115,7 @@ type processorTypes =
   | WORLDPAYVANTIV
   | BARCLAYCARD
   | SILVERFLOW
+  | PINNACLETEST
   | TOKENIO
   | PAYLOAD
   | PAYTM

@@ -172,6 +172,7 @@ let connectorList: array<connectorTypes> = [
   Processors(WORLDPAYVANTIV),
   Processors(BARCLAYCARD),
   Processors(SILVERFLOW),
+  Processors(PINNACLETEST),
   Processors(TOKENIO),
   Processors(PAYLOAD),
   Processors(PAYTM),
@@ -731,6 +732,10 @@ let silverflowInfo = {
   description: "Silverflow provides a direct connection to the card networks that is always up to date. Enabling PSPs, payfacs, merchants and acquirers to innovate.",
 }
 
+let pinnacletestInfo = {
+  description: "Pinnacle Stage 1 probe connector. Not a real processor: it exists to prove a connector can be registered end to end, and its base URL (example.invalid) never resolves.",
+}
+
 let checkbookInfo = {
   description: "Checkbook offers businesses a versatile and embeddable way to scale their payouts. As a leading provider of both paper and digital options, we're uniquely positioned to enable the speed, flexibility, and cost savings of modern payments, with the familiarity and simplicity of paper checks.",
 }
@@ -1052,6 +1057,7 @@ let getConnectorNameString = (connector: processorTypes) =>
   | WORLDPAYVANTIV => "worldpayvantiv"
   | BARCLAYCARD => "barclaycard"
   | SILVERFLOW => "silverflow"
+  | PINNACLETEST => "pinnacletest"
   | TOKENIO => "tokenio"
   | PAYLOAD => "payload"
   | PAYTM => "paytm"
@@ -1273,6 +1279,7 @@ let getConnectorNameTypeFromString = (connector, ~connectorType=ConnectorTypes.P
     | "worldpayvantiv" => Processors(WORLDPAYVANTIV)
     | "barclaycard" => Processors(BARCLAYCARD)
     | "silverflow" => Processors(SILVERFLOW)
+    | "pinnacletest" => Processors(PINNACLETEST)
     | "tokenio" => Processors(TOKENIO)
     | "payload" => Processors(PAYLOAD)
     | "paytm" => Processors(PAYTM)
@@ -1470,6 +1477,7 @@ let getProcessorInfo = (connector: ConnectorTypes.processorTypes) => {
   | WORLDPAYVANTIV => worldpayVantivInfo
   | BARCLAYCARD => barclaycardInfo
   | SILVERFLOW => silverflowInfo
+  | PINNACLETEST => pinnacletestInfo
   | PAYLOAD => payloadInfo
   | TOKENIO => tokenioInfo
   | PAYTM => paytmInfo
@@ -2485,6 +2493,7 @@ let getDisplayNameForProcessor = (connector: ConnectorTypes.processorTypes) =>
   | WORLDPAYVANTIV => "Worldpay Vantiv"
   | BARCLAYCARD => "BarclayCard SmartPay Fuse"
   | SILVERFLOW => "Silverflow"
+  | PINNACLETEST => "Pinnacle Test"
   | PAYLOAD => "Payload"
   | TOKENIO => "Token.io"
   | PAYTM => "Paytm"
