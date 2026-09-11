@@ -172,7 +172,7 @@ let connectorList: array<connectorTypes> = [
   Processors(WORLDPAYVANTIV),
   Processors(BARCLAYCARD),
   Processors(SILVERFLOW),
-  Processors(PINNACLETEST),
+  Processors(PINNACLE),
   Processors(TOKENIO),
   Processors(PAYLOAD),
   Processors(PAYTM),
@@ -732,8 +732,8 @@ let silverflowInfo = {
   description: "Silverflow provides a direct connection to the card networks that is always up to date. Enabling PSPs, payfacs, merchants and acquirers to innovate.",
 }
 
-let pinnacletestInfo = {
-  description: "Pinnacle Stage 1 probe connector. Not a real processor: it exists to prove a connector can be registered end to end, and its base URL (example.invalid) never resolves.",
+let pinnacleInfo = {
+  description: "Pinnacle payment-api: card payments with 3D Secure, and refunds.",
 }
 
 let checkbookInfo = {
@@ -1057,7 +1057,7 @@ let getConnectorNameString = (connector: processorTypes) =>
   | WORLDPAYVANTIV => "worldpayvantiv"
   | BARCLAYCARD => "barclaycard"
   | SILVERFLOW => "silverflow"
-  | PINNACLETEST => "pinnacletest"
+  | PINNACLE => "pinnacle"
   | TOKENIO => "tokenio"
   | PAYLOAD => "payload"
   | PAYTM => "paytm"
@@ -1279,7 +1279,7 @@ let getConnectorNameTypeFromString = (connector, ~connectorType=ConnectorTypes.P
     | "worldpayvantiv" => Processors(WORLDPAYVANTIV)
     | "barclaycard" => Processors(BARCLAYCARD)
     | "silverflow" => Processors(SILVERFLOW)
-    | "pinnacletest" => Processors(PINNACLETEST)
+    | "pinnacle" => Processors(PINNACLE)
     | "tokenio" => Processors(TOKENIO)
     | "payload" => Processors(PAYLOAD)
     | "paytm" => Processors(PAYTM)
@@ -1477,7 +1477,7 @@ let getProcessorInfo = (connector: ConnectorTypes.processorTypes) => {
   | WORLDPAYVANTIV => worldpayVantivInfo
   | BARCLAYCARD => barclaycardInfo
   | SILVERFLOW => silverflowInfo
-  | PINNACLETEST => pinnacletestInfo
+  | PINNACLE => pinnacleInfo
   | PAYLOAD => payloadInfo
   | TOKENIO => tokenioInfo
   | PAYTM => paytmInfo
@@ -2493,7 +2493,7 @@ let getDisplayNameForProcessor = (connector: ConnectorTypes.processorTypes) =>
   | WORLDPAYVANTIV => "Worldpay Vantiv"
   | BARCLAYCARD => "BarclayCard SmartPay Fuse"
   | SILVERFLOW => "Silverflow"
-  | PINNACLETEST => "Pinnacle Test"
+  | PINNACLE => "Pinnacle"
   | PAYLOAD => "Payload"
   | TOKENIO => "Token.io"
   | PAYTM => "Paytm"
