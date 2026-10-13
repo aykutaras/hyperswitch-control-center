@@ -81,37 +81,12 @@ let useAuthMethods = (): authMethodProps => {
     featureFlagValues.email && getAuthMethod(method)->Option.isSome
   }, [authMethods])
 
+  // Pinnacle: accounts are created by admins only. A tenant admin creates
+  // organizations and merchants and invites their users. The router refuses
+  // public sign-up under run_env=production; this hides the dashboard's
+  // "Sign up" link in every environment, whatever the auth methods allow.
   let isSignUpAllowed = React.useCallback(() => {
-    open SSOTypes
-    let magicLinkmethod = getAuthMethod(MAGIC_LINK)
-    let passwordmethod = getAuthMethod(PASSWORD)
-    let emailFeatureFlagEnable = featureFlagValues.email
-
-    let isSingUpAllowedinMagicLink = switch magicLinkmethod {
-    | Some(magicLinkData) =>
-      magicLinkData->Array.some(v => v.allow_signup && emailFeatureFlagEnable)
-    | None => emailFeatureFlagEnable
-    }
-
-    let isSingUpAllowedinPassword = switch passwordmethod {
-    | Some(passwordData) => passwordData->Array.some(v => v.allow_signup)
-    | None => !emailFeatureFlagEnable
-    }
-
-    let isLiveMode = featureFlagValues.isLiveMode
-
-    if isLiveMode {
-      // Singup not allowed in Prod
-      (false, INVALID)
-    } else if isSingUpAllowedinMagicLink {
-      // Singup is allowed if email feature flag and allow_signup in the magicLink method is true
-      (true, MAGIC_LINK)
-    } else if isSingUpAllowedinPassword {
-      // Singup is allowed if email feature flag and allow_signup in the password method is true
-      (true, PASSWORD)
-    } else {
-      (false, INVALID)
-    }
+    (false, SSOTypes.INVALID)
   }, [authMethods])
 
   {
