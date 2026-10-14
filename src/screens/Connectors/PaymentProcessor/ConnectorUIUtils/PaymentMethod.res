@@ -105,6 +105,9 @@ module CardRenderer = {
             switch connector->getConnectorNameTypeFromString(~connectorType) {
             | Processors(TRUSTPAY)
             | Processors(STRIPE_TEST)
+            // PayTech's Apple Pay and Google Pay are redirects to its card page,
+            // so they need no Apple or Google merchant setup.
+            | Processors(PAYTECH)
             | PayoutProcessor(WORLDPAY)
             | PayoutProcessor(WORLDPAYXML) => false
             | _ => true
