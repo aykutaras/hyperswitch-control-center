@@ -172,6 +172,7 @@ let connectorList: array<connectorTypes> = [
   Processors(WORLDPAYVANTIV),
   Processors(BARCLAYCARD),
   Processors(SILVERFLOW),
+  Processors(PAYTECH),
   Processors(PINNACLE),
   Processors(TOKENIO),
   Processors(PAYLOAD),
@@ -732,6 +733,10 @@ let silverflowInfo = {
   description: "Silverflow provides a direct connection to the card networks that is always up to date. Enabling PSPs, payfacs, merchants and acquirers to innovate.",
 }
 
+let paytechInfo = {
+  description: "pay.tech's PayPlane engine: local and alternative payment methods through its checkout page, and refunds. Cards go through Pinnacle.",
+}
+
 let pinnacleInfo = {
   description: "Pinnacle payment-api: card payments with 3D Secure, and refunds.",
 }
@@ -1057,6 +1062,7 @@ let getConnectorNameString = (connector: processorTypes) =>
   | WORLDPAYVANTIV => "worldpayvantiv"
   | BARCLAYCARD => "barclaycard"
   | SILVERFLOW => "silverflow"
+  | PAYTECH => "paytech"
   | PINNACLE => "pinnacle"
   | TOKENIO => "tokenio"
   | PAYLOAD => "payload"
@@ -1279,6 +1285,7 @@ let getConnectorNameTypeFromString = (connector, ~connectorType=ConnectorTypes.P
     | "worldpayvantiv" => Processors(WORLDPAYVANTIV)
     | "barclaycard" => Processors(BARCLAYCARD)
     | "silverflow" => Processors(SILVERFLOW)
+    | "paytech" => Processors(PAYTECH)
     | "pinnacle" => Processors(PINNACLE)
     | "tokenio" => Processors(TOKENIO)
     | "payload" => Processors(PAYLOAD)
@@ -1477,6 +1484,7 @@ let getProcessorInfo = (connector: ConnectorTypes.processorTypes) => {
   | WORLDPAYVANTIV => worldpayVantivInfo
   | BARCLAYCARD => barclaycardInfo
   | SILVERFLOW => silverflowInfo
+  | PAYTECH => paytechInfo
   | PINNACLE => pinnacleInfo
   | PAYLOAD => payloadInfo
   | TOKENIO => tokenioInfo
@@ -2493,6 +2501,7 @@ let getDisplayNameForProcessor = (connector: ConnectorTypes.processorTypes) =>
   | WORLDPAYVANTIV => "Worldpay Vantiv"
   | BARCLAYCARD => "BarclayCard SmartPay Fuse"
   | SILVERFLOW => "Silverflow"
+  | PAYTECH => "PayTech"
   | PINNACLE => "Pinnacle"
   | PAYLOAD => "Payload"
   | TOKENIO => "Token.io"
