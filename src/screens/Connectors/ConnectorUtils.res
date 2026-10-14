@@ -728,7 +728,7 @@ let silverflowInfo = {
 }
 
 let paytechInfo = {
-  description: "pay.tech's PayPlane engine: local and alternative payment methods through its checkout page, and refunds. Cards go through Pinnacle.",
+  description: "pay.tech's PayPlane engine: cards, Apple Pay, Google Pay and local payment methods through its checkout page, and refunds.",
 }
 
 let pinnacleInfo = {
