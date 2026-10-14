@@ -39,6 +39,9 @@ let getPaymentExperience = (connector, pm, pmt, pme) => {
     switch (ConnectorUtils.getConnectorNameTypeFromString(connector), pmt->getPMTFromString) {
     | (Processors(PAYPAL), PayPal) | (Processors(KLARNA), Klarna) => pme
     | (Processors(ZEN), GooglePay) | (Processors(ZEN), ApplePay) => Some("redirect_to_url")
+    // PayTech's Apple Pay and Google Pay are redirects to its card page.
+    | (Processors(PAYTECH), GooglePay) | (Processors(PAYTECH), ApplePay) =>
+      Some("redirect_to_url")
     | (Processors(BRAINTREE), PayPal) => Some("invoke_sdk_client")
     | (Processors(GLOBALPAY), AliPay)
     | (Processors(GLOBALPAY), WeChatPay)
@@ -136,7 +139,9 @@ let isMetaDataRequired = (pmt, connector) => {
     {
       switch connector->ConnectorUtils.getConnectorNameTypeFromString {
       | Processors(TRUSTPAY)
-      | Processors(STRIPE_TEST) => false
+      | Processors(STRIPE_TEST)
+      // PayTech's Apple Pay and Google Pay are redirects: no wallet metadata.
+      | Processors(PAYTECH) => false
       | _ => true
       }
     }
