@@ -116,6 +116,7 @@ type processorTypes =
   | BARCLAYCARD
   | SILVERFLOW
   | PAYTECH
+  | SALTEDGE
   | PINNACLE
   | TOKENIO
   | PAYLOAD
