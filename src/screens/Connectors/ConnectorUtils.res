@@ -173,6 +173,7 @@ let connectorList: array<connectorTypes> = [
   Processors(BARCLAYCARD),
   Processors(SILVERFLOW),
   Processors(PAYTECH),
+  Processors(SALTEDGE),
   Processors(PINNACLE),
   Processors(TOKENIO),
   Processors(PAYLOAD),
@@ -737,6 +738,10 @@ let paytechInfo = {
   description: "pay.tech's PayPlane engine: cards, Apple Pay, Google Pay and local payment methods through its checkout page, and refunds.",
 }
 
+let saltedgeInfo = {
+  description: "Salt Edge's open banking gateway: Pay by bank from the payer's own bank, by Faster Payments in GBP and SEPA in EUR, straight to the merchant's account. No refunds.",
+}
+
 let pinnacleInfo = {
   description: "Pinnacle payment-api: card payments with 3D Secure, and refunds.",
 }
@@ -1063,6 +1068,7 @@ let getConnectorNameString = (connector: processorTypes) =>
   | BARCLAYCARD => "barclaycard"
   | SILVERFLOW => "silverflow"
   | PAYTECH => "paytech"
+  | SALTEDGE => "saltedge"
   | PINNACLE => "pinnacle"
   | TOKENIO => "tokenio"
   | PAYLOAD => "payload"
@@ -1286,6 +1292,7 @@ let getConnectorNameTypeFromString = (connector, ~connectorType=ConnectorTypes.P
     | "barclaycard" => Processors(BARCLAYCARD)
     | "silverflow" => Processors(SILVERFLOW)
     | "paytech" => Processors(PAYTECH)
+    | "saltedge" => Processors(SALTEDGE)
     | "pinnacle" => Processors(PINNACLE)
     | "tokenio" => Processors(TOKENIO)
     | "payload" => Processors(PAYLOAD)
@@ -1485,6 +1492,7 @@ let getProcessorInfo = (connector: ConnectorTypes.processorTypes) => {
   | BARCLAYCARD => barclaycardInfo
   | SILVERFLOW => silverflowInfo
   | PAYTECH => paytechInfo
+  | SALTEDGE => saltedgeInfo
   | PINNACLE => pinnacleInfo
   | PAYLOAD => payloadInfo
   | TOKENIO => tokenioInfo
@@ -2502,6 +2510,7 @@ let getDisplayNameForProcessor = (connector: ConnectorTypes.processorTypes) =>
   | BARCLAYCARD => "BarclayCard SmartPay Fuse"
   | SILVERFLOW => "Silverflow"
   | PAYTECH => "PayTech"
+  | SALTEDGE => "Salt Edge"
   | PINNACLE => "Pinnacle"
   | PAYLOAD => "Payload"
   | TOKENIO => "Token.io"
