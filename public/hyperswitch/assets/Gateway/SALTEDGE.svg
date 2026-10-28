@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-  <rect x="0" y="0" width="40" height="40" rx="8" fill="#0B5D5E"/>
-  <text x="20" y="20" fill="#FFFFFF" font-family="Arial, sans-serif" font-weight="700" font-size="14" text-anchor="middle" dominant-baseline="central">SE</text>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="39" height="39" rx="3.5" fill="#FAFAFA"/>
+<rect x="0.5" y="0.5" width="39" height="39" rx="3.5" stroke="#E6E6E6"/>
+<g transform="translate(11.418 8) scale(0.8052)" fill="#000A21">
+<path d="M19.0117 9.74441V13.7398L19.0109 13.739L2.30445 20.062L2.30684 16.0662Z"/>
+<path d="M0.00140431 13.1836L21.3161 5.17361L21.3159 0L0 8.0098Z"/>
+<path d="M0 29.8064L21.3155 21.7953L21.3161 16.6228L0 24.6333Z"/>
+</g>
 </svg>
