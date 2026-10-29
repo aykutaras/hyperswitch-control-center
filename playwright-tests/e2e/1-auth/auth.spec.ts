@@ -35,7 +35,7 @@ test.describe.serial("Sign up", () => {
     );
     await expect(signupPage.signUpButton).toBeVisible();
     await expect(signupPage.footerText).toBeVisible();
-    await expect(signinPage.tcText).toBeVisible();
+    await expect(signinPage.tcText).not.toBeAttached();
   });
 
   test("should display an error message for an invalid email", async ({
@@ -192,8 +192,8 @@ test.describe.serial("Sign in", () => {
     await expect(signinPage.emailSigninLink).toContainText(
       "sign in with an email",
     );
-    await expect(signinPage.tcText).toBeAttached();
-    await expect(signinPage.footerText).toBeAttached();
+    await expect(signinPage.tcText).not.toBeAttached();
+    await expect(signinPage.footerText).not.toBeAttached();
   });
 
   test("should return to login page when clicked on 'Sign in'", async ({
@@ -932,7 +932,7 @@ test.describe("TOTP flows", () => {
 });
 
 test.describe("Branding flag", () => {
-  test("should show T&C and footer links on auth pages when branding flag is OFF", async ({
+  test("should hide T&C and footer links on auth pages even when branding flag is OFF", async ({
     page,
   }) => {
     const signinPage = new SignInPage(page);
@@ -948,8 +948,8 @@ test.describe("Branding flag", () => {
 
     await page.goto("/login");
 
-    await expect(signinPage.tcText).toBeVisible();
-    await expect(signinPage.footerText).toBeVisible();
+    await expect(signinPage.tcText).not.toBeAttached();
+    await expect(signinPage.footerText).not.toBeAttached();
   });
 
   test("should hide T&C and footer links on auth pages when branding flag is ON", async ({

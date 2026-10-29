@@ -90,12 +90,14 @@ let make = (~setSelectedAuthId) => {
         className="h-full flex flex-col items-center justify-between text-grey-0 w-full mobile:w-30-rem">
         <div className="flex flex-col items-center gap-6 flex-1 mt-32 w-30-rem">
           <Div layoutId="form" className="bg-white w-full text-black mobile:border rounded-lg">
-            <div className="px-7 py-6">
-              <Div layoutId="logo">
-                <HyperSwitchLogo logoHeight="h-6" logoVariant iconUrl />
-              </Div>
-            </div>
-            <Div layoutId="border" className="border-b w-full" />
+            <RenderIf condition={iconUrl->Option.isSome}>
+              <div className="px-7 py-6">
+                <Div layoutId="logo">
+                  <HyperSwitchLogo logoHeight="h-6" logoVariant iconUrl />
+                </Div>
+              </div>
+              <Div layoutId="border" className="border-b w-full" />
+            </RenderIf>
             <div className="flex flex-col gap-4 p-7">
               {authMethods
               ->Array.mapWithIndex((authMethod, index) =>
