@@ -2,12 +2,6 @@
 let make = (~onClick) => {
   <HSwitchUtils.BackgroundImageWrapper customPageCss="font-semibold md:text-3xl p-16">
     <div className="flex flex-col justify-between gap-32 flex items-center justify-center h-2/3">
-      <Icon
-        name="hyperswitch-text-icon"
-        size=40
-        className="cursor-pointer w-60"
-        parentClass="flex flex-col justify-center items-center bg-white"
-      />
       <div className="flex flex-col justify-between items-center gap-12 ">
         <img alt="work-in-progress" src={`/assets/WorkInProgress.svg`} />
         <div
