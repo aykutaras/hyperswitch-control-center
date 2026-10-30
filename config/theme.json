@@ -22,7 +22,7 @@
     }
   },
   "urls": {
-    "faviconUrl": "",
-    "logoUrl": ""
+    "faviconUrl": "/assets/PayRunnerFavicon.png",
+    "logoUrl": "/assets/PayRunnerLogo.png"
   }
 }
