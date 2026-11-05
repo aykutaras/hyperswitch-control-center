@@ -10,6 +10,10 @@ dss_certificate_us_url=""
 dss_certificate_eu_url=""
 logo_url=""
 favicon_url=""
+# The theme a section's dashboard shows before anyone signs in. A white-label
+# brand's section sets it, and the server picks that section by the Host header
+# (brand_hosts). A theme_id in the URL still comes first.
+theme_id=""
 recon_iframe_url=""
 hypersense_url=""
 mixpanel_token=""

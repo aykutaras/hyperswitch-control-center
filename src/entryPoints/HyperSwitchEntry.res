@@ -80,12 +80,34 @@ module HyperSwitchEntryComponent = {
         HSLocalStorage.setDomaintoStore(domainUrl->Option.getOr(""))
       }
       let themeId = getThemeIdfromStore()
-      (themeId, domainUrl)
+      (themeId, domainUrl, themeID->Option.isSome)
+    }
+
+    // On a white-label brand's dashboard host, the server answers with the
+    // brand's config section, whose endpoints.theme_id is the brand's theme
+    // (hyperswitch-k8s, IMPLEMENTATION_PLAN.md Stage 15). It is stored, not
+    // only shown: the sign-in, password and 2FA requests send the stored theme
+    // id, and the router brands their emails with it. A theme_id in the URL
+    // still comes first; after sign-in, the user's own theme replaces either.
+    let themeIdForHost = (config: JSON.t, ~storedThemeId, ~themeIdInUrl) => {
+      let hostThemeId =
+        config
+        ->getDictFromJsonObject
+        ->getDictfromDict("endpoints")
+        ->getString("theme_id", "")
+        ->getNonEmptyString
+      switch (themeIdInUrl, hostThemeId) {
+      | (false, Some(hostTheme)) => {
+          setThemeIdtoStore(hostTheme)
+          Some(hostTheme)
+        }
+      | _ => storedThemeId
+      }
     }
 
     let fetchConfig = async () => {
       try {
-        let (themeId, domain) = fetchThemeAndDomainFromUrl()
+        let (storedThemeId, domain, themeIdInUrl) = fetchThemeAndDomainFromUrl()
         let apiURL = `${GlobalVars.getHostUrlWithBasePath}/config/feature?domain=${domain->Option.getOr(
             "",
           )}` // todo: domain shall be removed from query params later
@@ -97,6 +119,7 @@ module HyperSwitchEntryComponent = {
         setConnectorDisplayList(_ => connectorDisplayList)
         setConnectorCloneAllowList(_ => connectorCloneAllowList)
         let _ = configEnv(res) // to set initial env
+        let themeId = res->themeIdForHost(~storedThemeId, ~themeIdInUrl)
         let _ = await getThemesJson(~themesID=themeId, ~domain)
         // Delay added on Expecting feature flag recoil gets updated
         await HyperSwitchUtils.delay(1000)

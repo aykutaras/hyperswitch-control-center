@@ -67,6 +67,30 @@ external execSync: (string, encodeType) => string = "execSync"
 
 let currentCommitHash = nullableGitCommitStr->Option.getOr("no-commit-hash")
 
+// A white-label brand's dashboard host picks the brand's config section
+// (hyperswitch-k8s, IMPLEMENTATION_PLAN.md Stage 15). brand_hosts is a
+// space-separated list of <host>=<section>; the section itself is given in the
+// environment (<section>__enabled, <section>__endpoints__*).
+let sectionForHost = (hostHeader: option<string>) => {
+  let host =
+    hostHeader
+    ->Option.getOr("")
+    ->String.split(":")
+    ->Array.get(0)
+    ->Option.getOr("")
+    ->String.toLowerCase
+  env
+  ->Dict.get("brand_hosts")
+  ->Option.getOr("")
+  ->String.split(" ")
+  ->Array.findMap(pair =>
+    switch pair->String.split("=") {
+    | [brandHost, section] if host != "" && brandHost == host && section != "" => Some(section)
+    | _ => None
+    }
+  )
+}
+
 let serverHandler: Http.serverHandler = (request, response) => {
   let arr = request.url.toString()->String.split("?")
 
@@ -84,7 +108,11 @@ let serverHandler: Http.serverHandler = (request, response) => {
   | value => value
   }
 
-  let domain = domainFromQueryParam == "" ? domainFromXTenantId : domainFromQueryParam
+  let domain = switch (domainFromQueryParam, sectionForHost(request.headers->Dict.get("host"))) {
+  | ("", Some(section)) => section
+  | ("", None) => domainFromXTenantId
+  | (fromQuery, _) => fromQuery
+  }
 
   let path =
     arr

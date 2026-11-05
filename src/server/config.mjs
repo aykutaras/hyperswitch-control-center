@@ -151,7 +151,16 @@ const configHandler = async (
     if (config[domain] && Object.keys(config[domain]).length > 0) {
       merchantConfig = updateConfigWithEnv(config[domain], domain, "theme");
     } else if (domain.length > 0 && isDomainExitsInEnv) {
-      merchantConfig = updateConfigWithEnv(config.default, domain, "theme");
+      // A section that exists only in the environment, such as a white-label
+      // brand's: the default section with its own default__ overrides first,
+      // then the section's. Without the first step the brand's dashboard would
+      // lose every default__ setting the deployment makes (its features, its
+      // API URL) and fall back to this file's bare defaults.
+      merchantConfig = updateConfigWithEnv(
+        updateConfigWithEnv(config.default, "default", ""),
+        domain,
+        "theme",
+      );
     } else {
       merchantConfig = updateConfigWithEnv(merchantConfig, "default", "");
     }
