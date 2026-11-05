@@ -169,7 +169,8 @@ let make = (~children) => {
       let getUrl = (key, defaultVal, existingVal) => {
         let value = urlsDict->getJsonObjectFromDict(key)
         if isNullJson(value) {
-          Some(defaultVal)
+          // A theme without the URL takes the config's own, or none: never another brand's logo.
+          existingVal
         } else {
           urlsDict->getString(key, existingVal->Option.getOr(defaultVal))->getNonEmptyString
         }
