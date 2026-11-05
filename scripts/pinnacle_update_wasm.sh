@@ -10,7 +10,7 @@
 #
 # The dashboard's getConnectorConfig runs Connector::from_str first, so a
 # connector the WASM does not know cannot be configured even when
-# ConnectorUtils.res lists it (hyperswitch-k8s DEPLOYMENT_GUIDE.md §10).
+# ConnectorUtils.res lists it.
 #
 # Built inside Linux: Apple clang has no wasm32 backend, so `ring` cannot compile
 # for wasm32-unknown-unknown on macOS. The features are upstream's Makefile target

@@ -67,10 +67,9 @@ external execSync: (string, encodeType) => string = "execSync"
 
 let currentCommitHash = nullableGitCommitStr->Option.getOr("no-commit-hash")
 
-// A white-label brand's dashboard host picks the brand's config section
-// (hyperswitch-k8s, IMPLEMENTATION_PLAN.md Stage 15). brand_hosts is a
-// space-separated list of <host>=<section>; the section itself is given in the
-// environment (<section>__enabled, <section>__endpoints__*).
+// A white-label brand's dashboard host picks the brand's config section.
+// brand_hosts is a space-separated list of <host>=<section>; the section itself
+// is given in the environment (<section>__enabled, <section>__endpoints__*).
 let sectionForHost = (hostHeader: option<string>) => {
   let host =
     hostHeader

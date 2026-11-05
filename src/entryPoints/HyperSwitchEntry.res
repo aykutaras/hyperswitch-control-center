@@ -84,11 +84,11 @@ module HyperSwitchEntryComponent = {
     }
 
     // On a white-label brand's dashboard host, the server answers with the
-    // brand's config section, whose endpoints.theme_id is the brand's theme
-    // (hyperswitch-k8s, IMPLEMENTATION_PLAN.md Stage 15). It is stored, not
-    // only shown: the sign-in, password and 2FA requests send the stored theme
-    // id, and the router brands their emails with it. A theme_id in the URL
-    // still comes first; after sign-in, the user's own theme replaces either.
+    // brand's config section, whose endpoints.theme_id is the brand's theme.
+    // It is stored, not only shown: the sign-in, password and 2FA requests
+    // send the stored theme id, and the router brands their emails with it. A
+    // theme_id in the URL still comes first; after sign-in, the user's own
+    // theme replaces either.
     let themeIdForHost = (config: JSON.t, ~storedThemeId, ~themeIdInUrl) => {
       let hostThemeId =
         config

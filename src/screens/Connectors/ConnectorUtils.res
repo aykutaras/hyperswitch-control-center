@@ -743,7 +743,7 @@ let saltedgeInfo = {
 }
 
 let pinnacleInfo = {
-  description: "Pinnacle payment-api: card payments with 3D Secure, and refunds.",
+  description: "Pinnacle API: card payments with 3D Secure, and refunds.",
 }
 
 let checkbookInfo = {
