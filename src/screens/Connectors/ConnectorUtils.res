@@ -252,6 +252,10 @@ let connectorListForLive: array<connectorTypes> = [
   Processors(WORLDPAYMODULAR),
   Processors(PAYJUSTNOW),
   Processors(PAYJUSTNOWINSTORE),
+  // This fork's own processors, live like the ones above.
+  Processors(PAYTECH),
+  Processors(SALTEDGE),
+  Processors(PINNACLE),
 ]
 
 let connectorListWithAutomaticFlow = [PAYPAL]
