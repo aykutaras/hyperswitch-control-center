@@ -118,6 +118,7 @@ type processorTypes =
   | PAYTECH
   | SALTEDGE
   | PINNACLE
+  | HYPERSWITCH
   | TOKENIO
   | PAYLOAD
   | PAYTM

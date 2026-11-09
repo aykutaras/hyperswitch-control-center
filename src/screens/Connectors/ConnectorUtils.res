@@ -175,6 +175,7 @@ let connectorList: array<connectorTypes> = [
   Processors(PAYTECH),
   Processors(SALTEDGE),
   Processors(PINNACLE),
+  Processors(HYPERSWITCH),
   Processors(TOKENIO),
   Processors(PAYLOAD),
   Processors(PAYTM),
@@ -256,6 +257,7 @@ let connectorListForLive: array<connectorTypes> = [
   Processors(PAYTECH),
   Processors(SALTEDGE),
   Processors(PINNACLE),
+  Processors(HYPERSWITCH),
 ]
 
 let connectorListWithAutomaticFlow = [PAYPAL]
@@ -750,6 +752,10 @@ let pinnacleInfo = {
   description: "Pinnacle API: card payments with 3D Secure, and refunds.",
 }
 
+let hyperswitchInfo = {
+  description: "Another Hyperswitch deployment as the processor: card payments with 3D Secure, card redirect to its payment link, manual capture and refunds.",
+}
+
 let checkbookInfo = {
   description: "Checkbook offers businesses a versatile and embeddable way to scale their payouts. As a leading provider of both paper and digital options, we're uniquely positioned to enable the speed, flexibility, and cost savings of modern payments, with the familiarity and simplicity of paper checks.",
 }
@@ -1074,6 +1080,7 @@ let getConnectorNameString = (connector: processorTypes) =>
   | PAYTECH => "paytech"
   | SALTEDGE => "saltedge"
   | PINNACLE => "pinnacle"
+  | HYPERSWITCH => "hyperswitch"
   | TOKENIO => "tokenio"
   | PAYLOAD => "payload"
   | PAYTM => "paytm"
@@ -1298,6 +1305,7 @@ let getConnectorNameTypeFromString = (connector, ~connectorType=ConnectorTypes.P
     | "paytech" => Processors(PAYTECH)
     | "saltedge" => Processors(SALTEDGE)
     | "pinnacle" => Processors(PINNACLE)
+    | "hyperswitch" => Processors(HYPERSWITCH)
     | "tokenio" => Processors(TOKENIO)
     | "payload" => Processors(PAYLOAD)
     | "paytm" => Processors(PAYTM)
@@ -1498,6 +1506,7 @@ let getProcessorInfo = (connector: ConnectorTypes.processorTypes) => {
   | PAYTECH => paytechInfo
   | SALTEDGE => saltedgeInfo
   | PINNACLE => pinnacleInfo
+  | HYPERSWITCH => hyperswitchInfo
   | PAYLOAD => payloadInfo
   | TOKENIO => tokenioInfo
   | PAYTM => paytmInfo
@@ -2516,6 +2525,7 @@ let getDisplayNameForProcessor = (connector: ConnectorTypes.processorTypes) =>
   | PAYTECH => "PayTech"
   | SALTEDGE => "Salt Edge"
   | PINNACLE => "Pinnacle"
+  | HYPERSWITCH => "Hyperswitch"
   | PAYLOAD => "Payload"
   | TOKENIO => "Token.io"
   | PAYTM => "Paytm"
