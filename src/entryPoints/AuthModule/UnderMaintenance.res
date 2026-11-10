@@ -15,14 +15,13 @@ let make = () => {
         className={`flex flex-row px-4 py-2 md:gap-8 gap-4 rounded whitespace-nowrap text-fs-13 bg-yellow-200 border-yellow-200 font-semibold justify-center`}>
         <div className="flex gap-2">
           <div className="flex text-gray-500 items-center">
-            {`Hyperswitch Control Center is under maintenance`->React.string}
+            {`The dashboard is under maintenance`->React.string}
           </div>
         </div>
       </div>
     </Transition>
     <NoDataFound
-      message="Hyperswitch Control Center is under maintenance will be back in an hour"
-      renderType=LoadError
+      message="The dashboard is under maintenance and will be back in an hour" renderType=LoadError
     />
   </>
 }

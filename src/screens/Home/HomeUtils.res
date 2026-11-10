@@ -142,7 +142,7 @@ module ControlCenter = {
     <div className=liveModeStyles>
       <CardLayout width="" customStyle="flex-1 rounded-xl p-6 gap-4">
         <div className="flex flex-col gap-4">
-          <img alt="sdk" src="/assets/IntegrateProcessorsOver.png" />
+          <img alt="sdk" src="/assets/IntegrateProcessors.svg" />
           <CardHeader
             heading="Integrate a Processor"
             subHeading="Get a head start by connecting with 20+ gateways, payment methods, and networks."
@@ -224,26 +224,30 @@ module DevResources = {
             />
           </CardLayout>
         </RenderIf>
-        <CardLayout width="" customStyle="flex-1 rounded-xl p-6 gap-4">
-          <div className="flex flex-col gap-4 ">
-            <CardHeader
-              heading="Developer docs"
-              subHeading="Everything you need to know to get the SDK up and running is right here."
-              customHeadingStyle={`!${heading.sm.semibold}`}
-              customSubHeadingStyle="!text-fs-14 !text-nd_gray-400 !opacity-100 !-mt-0.5"
+        {switch GlobalVars.merchantGuideUrl {
+        | Some(guideUrl) =>
+          <CardLayout width="" customStyle="flex-1 rounded-xl p-6 gap-4">
+            <div className="flex flex-col gap-4 ">
+              <CardHeader
+                heading="Integration guide"
+                subHeading="How to take payments with the API, step by step."
+                customHeadingStyle={`!${heading.sm.semibold}`}
+                customSubHeadingStyle="!text-fs-14 !text-nd_gray-400 !opacity-100 !-mt-0.5"
+              />
+              <img alt="integration guide" src="/assets/IntegrationGuide.svg" />
+            </div>
+            <Button
+              text="Visit"
+              buttonType={Secondary}
+              buttonSize={Medium}
+              onClick={_ => {
+                mixpanelEvent(~eventName=`dev_docs`)
+                guideUrl->Window._open
+              }}
             />
-            <img alt="devdocs" src="/assets/DevDocs.png" />
-          </div>
-          <Button
-            text="Visit"
-            buttonType={Secondary}
-            buttonSize={Medium}
-            onClick={_ => {
-              mixpanelEvent(~eventName=`dev_docs`)
-              "https://hyperswitch.io/docs"->Window._open
-            }}
-          />
-        </CardLayout>
+          </CardLayout>
+        | None => React.null
+        }}
       </div>
     </div>
   }

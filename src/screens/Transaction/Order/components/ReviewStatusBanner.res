@@ -62,7 +62,7 @@ let make = (~order: order, ~refetch) => {
     <AlertV2Binding
       alertType=Warning
       heading="This payment needs manual attention"
-      description="Hyperswitch received an anomalous response from the connector for this payment. Review it and update the status to Succeeded or Failed."
+      description="We received an anomalous response from the connector for this payment. Review it and update the status to Succeeded or Failed."
       actions={{
         position: Bottom,
         primaryAction: {

@@ -80,7 +80,7 @@ let labels = ["Above", "Floating"]
 let initialValueForForm = (
   ~showSetupFutureUsage=false,
   ~sendAuthType=false,
-  ~customCustomerId="hyperswitch_sdk_demo_id",
+  ~customCustomerId="sdk_demo_customer",
   ~profileId,
 ): SDKPaymentTypes.paymentType => {
   let setupFutureValue = showSetupFutureUsage ? Some("on_session") : None

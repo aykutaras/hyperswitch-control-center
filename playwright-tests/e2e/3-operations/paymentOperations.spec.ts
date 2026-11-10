@@ -2343,7 +2343,7 @@ test.describe("Payment Operations", () => {
         "Extended Auth Applied": "false",
         "Extended Auth Last Applied At": "-",
         "Request Extended Auth": "false",
-        "Hyperswitch Error Description": "N/A",
+        "Normalized Error Description": "N/A",
       })) {
         await expect(paymentOperations.dataLabel(label).first()).toContainText(
           value,

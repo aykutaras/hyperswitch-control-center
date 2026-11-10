@@ -620,7 +620,7 @@ test.describe("SDK Payment", () => {
     ).toBeVisible();
     await expect(
       page.getByRole("textbox", { name: "Enter Customer ID" }),
-    ).toHaveValue("hyperswitch_sdk_demo_id");
+    ).toHaveValue("sdk_demo_customer");
     await expect(page.getByText("Show Saved Card")).toBeVisible();
     await expect(page.getByRole("button", { name: "Yes" })).toBeVisible();
     await expect(
@@ -648,9 +648,6 @@ test.describe("SDK Payment", () => {
     ).toBeVisible();
     await expect(page.getByText("Expiry:Any future date")).toBeVisible();
     await expect(page.getByText("CVC:Any 3 Digits")).toBeVisible();
-    await expect(
-      page.getByRole("link", { name: "Test creds for other connectors here" }),
-    ).toBeVisible();
     await expect(homePage.sdkPreviewHeading).toBeVisible();
     await expect(page.getByRole("img", { name: "blurry-sdk" })).toBeVisible();
   });
@@ -695,9 +692,6 @@ test.describe("SDK Payment", () => {
     await expect(page.getByRole("textbox", { name: "#006DF9" })).toHaveValue(
       "#006DF9",
     );
-    await expect(
-      page.getByRole("link", { name: "Learn More About Customization" }),
-    ).toBeVisible();
     await expect(
       page.getByRole("button", { name: "Show preview" }),
     ).toBeVisible();

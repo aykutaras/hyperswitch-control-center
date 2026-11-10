@@ -82,7 +82,7 @@ let make = () => {
         </RenderIf>
         <div className="p-6 flex flex-col gap-2">
           <p className={`${textHeadingClass} text-grey-900`}>
-            {"Hey there, welcome to Hyperswitch!"->React.string}
+            {"Hey there, welcome!"->React.string}
           </p>
           <p className=textSubHeadingClass>
             {"Please accept your pending invitations"->React.string}

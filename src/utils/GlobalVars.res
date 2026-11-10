@@ -59,6 +59,14 @@ let hostType = switch hostName {
 | _ => Local
 }
 
+// The merchant guide of the brand whose dashboard this is: docs.<domain>, beside
+// this app.<domain>. None on any other host, which has no guide beside it.
+let merchantGuideUrl = if hostName->String.startsWith("app.") {
+  Some(`https://docs.${hostName->String.sliceToEnd(~start=4)}`)
+} else {
+  None
+}
+
 let getEnvironment = hostType =>
   switch hostType {
   | US(#Live) => "production"

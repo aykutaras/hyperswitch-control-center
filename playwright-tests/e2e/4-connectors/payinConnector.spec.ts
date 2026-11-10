@@ -384,7 +384,7 @@ test.describe("Payin Connector tests", () => {
     await expect(
       page
         .getByText(
-          /This is an unique label you can generate and pass in order to identify this connector account on your Hyperswitch dashboard and reports. Eg: if your profile label is 'default', connector label can be 'stripe_default'/i,
+          /This is an unique label you can generate and pass in order to identify this connector account on your dashboard and reports. Eg: if your profile label is 'default', connector label can be 'stripe_default'/i,
         )
         .first(),
     ).toBeVisible({

@@ -20,7 +20,6 @@ module TestCredsField = {
 let make = () => {
   let testCardNumber = "4242 4242 4242 4242"
   let cardNumberCopy = "4242424242424242"
-  let testCredsLink = "https://docs.hyperswitch.io/explore-hyperswitch/connectors/activate-connector-on-hyperswitch/test-a-payment-with-connector#test-cards-for-popular-connectors"
 
   <div className="p-6 bg-jp-gray-test_credentials_bg w-full h-fit">
     <div>
@@ -33,14 +32,6 @@ let make = () => {
         <TestCredsField label="Card Number :" value=testCardNumber copyData=cardNumberCopy />
         <TestCredsField label="Expiry:" value="Any future date" />
         <TestCredsField label="CVC:" value="Any 3 Digits" />
-        <a
-          className="flex items-center text-blue-400 dark:text-blue-300 hover:underline cursor-pointer gap-1 pt-2"
-          href=testCredsLink
-          target="_blank"
-          rel="noopener noreferrer">
-          {"Test creds for other connectors here"->React.string}
-          <img alt="open-new-tab" src="/icons/open-new-tab.svg" />
-        </a>
       </div>
     </div>
   </div>

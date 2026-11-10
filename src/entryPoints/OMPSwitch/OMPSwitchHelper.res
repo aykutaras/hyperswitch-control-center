@@ -6,14 +6,6 @@ open BusinessProfileInterface
 module PlatformMerchantModalContent = {
   @react.component
   let make = () => {
-    let mixpanelEvent = MixpanelHook.useSendEvent()
-
-    let onLearnMoreClick = e => {
-      e->ReactEvent.Mouse.stopPropagation
-      mixpanelEvent(~eventName="platform_account_modal_learn_more")
-      Window._open(DeveloperUtils.platformDocsUrl)
-    }
-
     let handleModalClick = e => {
       e->ReactEvent.Mouse.stopPropagation
     }
@@ -52,14 +44,6 @@ module PlatformMerchantModalContent = {
               ->React.array}
             </ul>
           </div>
-        </div>
-        <div className="flex" onClick=onLearnMoreClick>
-          <span className={`!text-nd_primary_blue-500 ${body.md.regular} cursor-pointer`}>
-            {"Learn more"->React.string}
-          </span>
-          <span>
-            <Icon name="nd-external-link-square" customIconColor="!text-nd_primary_blue-500" />
-          </span>
         </div>
       </div>
       <div className="col-span-2 flex pl-4">

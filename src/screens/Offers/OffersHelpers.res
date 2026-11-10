@@ -34,13 +34,7 @@ module DemoModeBanner = {
         slot: <div className="flex items-center gap-2">
           <Icon name="nd-toast-info" size=20 className="text-nd_primary_blue-450" />
           <p className={body.md.regular}>
-            {"You are viewing Offers in demo mode. To enable this feature for your merchant account, please reach out to us on "->React.string}
-            <a
-              href="https://hyperswitch-io.slack.com/?redir=%2Fssb%2Fredirect"
-              className="text-nd_primary_blue-450 hover:underline cursor-pointer"
-              target="_blank">
-              {"Slack"->React.string}
-            </a>
+            {"You are viewing Offers in demo mode. To enable this feature for your merchant account, please reach out to us."->React.string}
           </p>
         </div>,
       }}

@@ -1,7 +1,5 @@
 open HSwitchSettingTypes
 
-let platformDocsUrl = "https://docs.hyperswitch.io/integration-guide/account-management/multiple-accounts-and-profiles/platform-organization-concepts#the-platform-api-key"
-
 let validateAPIKeyForm = (
   values: JSON.t,
   ~setIsDisabled=_ => (),

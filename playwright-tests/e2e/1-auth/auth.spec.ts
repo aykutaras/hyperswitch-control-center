@@ -24,7 +24,7 @@ test.describe.serial("Sign up", () => {
 
     await visitSignupPage(page);
 
-    await expect(signupPage.headerText).toContainText("Welcome to Hyperswitch");
+    await expect(signupPage.headerText).toContainText("Create your account");
     await expect(signupPage.signInLink).toContainText("Sign in");
     await expect(signupPage.emailInput).toHaveAttribute(
       "placeholder",
@@ -206,7 +206,7 @@ test.describe.serial("Sign in", () => {
     await signinPage.signUpLink.click();
     await expect(page).toHaveURL(/.*register/);
 
-    await expect(signupPage.headerText).toContainText("Welcome to Hyperswitch");
+    await expect(signupPage.headerText).toContainText("Create your account");
     await signupPage.signInLink.click();
 
     await expect(page).toHaveURL(/.*login/);
@@ -1043,13 +1043,13 @@ test.describe("Maintenance mode and Down time", () => {
     await page.goto("/");
 
     await expect(
-      page.getByText("Hyperswitch Control Center is under maintenance", {
+      page.getByText("The dashboard is under maintenance", {
         exact: true,
       }),
     ).toBeVisible();
     await expect(
       page.getByText(
-        "Hyperswitch Control Center is under maintenance will be back in an hour",
+        "The dashboard is under maintenance and will be back in an hour",
       ),
     ).toBeVisible();
     await expect(page.getByText("Hey there, Welcome back!")).not.toBeVisible();

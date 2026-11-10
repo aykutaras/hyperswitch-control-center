@@ -55,7 +55,7 @@ module SampleEmail = {
     let (isTextVisible, setIsTextVisible) = React.useState(_ => false)
 
     let businessDescription = "<One sentence about your business>. The business operates across <XX> countries and has customers across the world."
-    let featureReqText = "We are using Hyperswitch, a Level 1 PCI DSS 3.2.1 compliant Payments Orchestrator, to manage payments on our website. In addition to Stripe, since we are using other processors as well to process payments across multiple geographies, we wanted to use Hyperswitch's Payment Processing certificate to decrypt Apple pay tokens and send the decrypted Apple pay tokens to Stripe. So, please enable processing decrypted Apple pay token feature on our Stripe account. We've attached Hyperswitch's PCI DSS AoC for reference."
+    let featureReqText = "We are using a payments orchestration platform to manage payments on our website. In addition to Stripe, since we are using other processors as well to process payments across multiple geographies, we wanted to use the platform's Payment Processing certificate to decrypt Apple pay tokens and send the decrypted Apple pay tokens to Stripe. So, please enable processing decrypted Apple pay token feature on our Stripe account."
 
     let emailContent = `Stripe Account id: <Enter your account id>
 
@@ -82,16 +82,7 @@ module SampleEmail = {
     <div className="flex flex-col">
       <span className="mt-2 text-base  font-normal">
         <span className="text-hyperswitch_black opacity-50">
-          {"Since the Apple Pay Web Domain flow involves decryption at Hyperswitch, you would need to write to Stripe support (support@stripe.com) to get this feature enabled for your Stripe account. You can use the following text in the email, attach our"->React.string}
-        </span>
-        <Link
-          to_={`/compliance`}
-          openInNewTab=false
-          className="text-blue-600 underline underline-offset-2 px-2 !opacity-100">
-          {"PCI DSS AoC certificate"->React.string}
-        </Link>
-        <span className="text-hyperswitch_black opacity-50">
-          {"and copy our Support team (biz@hyperswitch.io):"->React.string}
+          {"Since the Apple Pay Web Domain flow involves decryption on our platform, you would need to write to Stripe support (support@stripe.com) to get this feature enabled for your Stripe account. You can use the following text in the email:"->React.string}
         </span>
       </span>
       <div className="border border-gray-400 rounded-md flex flex-row gap-8 p-4 mt-4 bg-gray-200">

@@ -301,7 +301,7 @@ let getGooglePayIntegrationTypeFromName = (name: string) => {
 
 let decryptionKeyOptions: array<SelectBox.dropdownOption> = [
   {label: "Provide custom certificates", value: "DIRECT"},
-  {label: "Use Hyperswitch managed certificates", value: "INTERNAL_GATEWAY"},
+  {label: "Use the platform's managed certificates", value: "INTERNAL_GATEWAY"},
 ]
 
 let googlePayMerchantIdInput = (~googlePayIntegrationType) =>
@@ -310,7 +310,7 @@ let googlePayMerchantIdInput = (~googlePayIntegrationType) =>
     ~name=googlePayNameMapper(~name="merchant_id", ~googlePayIntegrationType),
     ~placeholder="Enter Google Pay Merchant ID",
     ~isRequired=false,
-    ~subText="If merchant ID is not provided, we will use Hyperswitch's internal merchant ID",
+    ~subText="If merchant ID is not provided, we will use our internal merchant ID",
     ~customInput=InputFields.textInput(),
   )
 

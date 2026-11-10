@@ -222,9 +222,7 @@ module DisputesInfoBarComponent = {
     open LogicUtils
     open PageLoaderWrapper
     let getURL = useGetURL()
-    let {globalUIConfig: {font: {textColor}, border: {borderColor}}} = React.useContext(
-      ThemeProvider.themeContext,
-    )
+    let {globalUIConfig: {border: {borderColor}}} = React.useContext(ThemeProvider.themeContext)
     let fetchDetails = useGetMethod()
     let updateDetails = useUpdateMethod()
     let showToast = ToastAdapter.useShowToast()
@@ -285,22 +283,6 @@ module DisputesInfoBarComponent = {
                   <p className={`${p1RegularText} opacity-60`}>
                     {"The customer claims that they did not authorise this purchase."->React.string}
                   </p>
-                </div>
-                <div
-                  className="flex gap-2 group items-center cursor-pointer"
-                  onClick={_ =>
-                    Window._open(
-                      "https://docs.hyperswitch.io/features/merchant-controls/disputes",
-                    )}>
-                  <p className={`${p1MediumText}  ${textColor.primaryNormal}`}>
-                    {"Learn how to respond"->React.string}
-                  </p>
-                  <Icon
-                    name="thin-right-arrow"
-                    size=20
-                    className="group-hover:scale-125 transition duration-200 ease-in-out"
-                    customIconColor={textColor.primaryNormal}
-                  />
                 </div>
               </div>
             | EvidencePresent =>

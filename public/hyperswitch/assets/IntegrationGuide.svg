@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1216" height="288" viewBox="0 0 1216 288" fill="none">
+  <rect width="1216" height="288" rx="24" fill="#F5F7FA"/>
+  <g font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" fill="#3A4150">
+    <g>
+      <rect x="64" y="52" width="300" height="52" rx="26" fill="#FFFFFF" stroke="#E3E7EE"/>
+      <circle cx="94" cy="78" r="12" fill="#5B7FA6"/>
+      <path d="M88 78l4 4 8-8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="118" y="85">Create a payment</text>
+    </g>
+    <g>
+      <rect x="64" y="118" width="300" height="52" rx="26" fill="#FFFFFF" stroke="#E3E7EE"/>
+      <circle cx="94" cy="144" r="12" fill="#5B7FA6"/>
+      <path d="M88 144l4 4 8-8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="118" y="151">Redirect the payer</text>
+    </g>
+    <g>
+      <rect x="64" y="184" width="300" height="52" rx="26" fill="#FFFFFF" stroke="#E3E7EE"/>
+      <circle cx="94" cy="210" r="12" fill="#5B7FA6"/>
+      <path d="M88 210l4 4 8-8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="118" y="217">Receive the webhook</text>
+    </g>
+  </g>
+  <g>
+    <rect x="458" y="32" width="300" height="224" rx="16" fill="#FFFFFF" stroke="#E3E7EE"/>
+    <rect x="458" y="32" width="300" height="44" rx="16" fill="#EEF2F7"/>
+    <rect x="458" y="60" width="300" height="16" fill="#EEF2F7"/>
+    <circle cx="482" cy="54" r="5" fill="#C9D1DC"/>
+    <circle cx="500" cy="54" r="5" fill="#C9D1DC"/>
+    <circle cx="518" cy="54" r="5" fill="#C9D1DC"/>
+    <rect x="486" y="98" width="180" height="10" rx="5" fill="#D5DCE5"/>
+    <rect x="486" y="120" width="236" height="10" rx="5" fill="#E6EBF1"/>
+    <rect x="486" y="142" width="208" height="10" rx="5" fill="#E6EBF1"/>
+    <rect x="486" y="170" width="244" height="62" rx="10" fill="#2F3846"/>
+    <rect x="502" y="186" width="96" height="8" rx="4" fill="#8FB3D9"/>
+    <rect x="606" y="186" width="64" height="8" rx="4" fill="#C7D2DE"/>
+    <rect x="518" y="206" width="132" height="8" rx="4" fill="#C7D2DE"/>
+  </g>
+  <g stroke="#C9D1DC" stroke-width="3" stroke-linecap="round">
+    <path d="M364 78h36c20 0 30 10 30 30v20"/>
+    <path d="M364 144h94"/>
+    <path d="M364 210h36c20 0 30-10 30-30v-20"/>
+  </g>
+  <g>
+    <rect x="852" y="64" width="300" height="160" rx="16" fill="#FFFFFF" stroke="#E3E7EE"/>
+    <text x="880" y="108" font-family="Menlo, Consolas, monospace" font-size="18" fill="#5B7FA6">POST /payments</text>
+    <rect x="880" y="128" width="220" height="10" rx="5" fill="#E6EBF1"/>
+    <rect x="880" y="150" width="180" height="10" rx="5" fill="#E6EBF1"/>
+    <rect x="880" y="180" width="88" height="24" rx="12" fill="#E3EFE6"/>
+    <text x="896" y="197" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" fill="#2E7D4F">200 OK</text>
+    <path d="M758 144h94" stroke="#C9D1DC" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10"/>
+  </g>
+</svg>
