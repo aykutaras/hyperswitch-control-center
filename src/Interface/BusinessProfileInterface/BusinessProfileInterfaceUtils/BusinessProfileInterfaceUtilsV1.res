@@ -35,9 +35,13 @@ let constructAuthConnectorObject = authConnectorDict => {
 }
 
 let constructWebhookDetailsRequestObject: _ => webhookDetailsRequest_v1 = webhookDetailsDict => {
+  // An emptied field is sent as "", not null: the router keeps the stored URL
+  // for null, which it cannot tell from a field left out, and removes it for "".
   webhook_url: webhookDetailsDict
   ->getOptionString("webhook_url")
-  ->BusinessProfileInterfaceUtils.convertOptionalStringToOptionalJson,
+  ->Option.getOr("")
+  ->JSON.Encode.string
+  ->Some,
   payment_statuses_enabled: webhookDetailsDict
   ->getOptionStrArrayFromDict("payment_statuses_enabled")
   ->convertOptionalStrArrayToOptionalJson,
